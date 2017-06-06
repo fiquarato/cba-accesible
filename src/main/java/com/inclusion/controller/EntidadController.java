@@ -32,7 +32,7 @@ public class EntidadController {
 		return new ResponseEntity<Entidad>(entidadService.save(entidad), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/findbybarrio", method = RequestMethod.POST)
+	@RequestMapping(value = "/findbybarrio", method = RequestMethod.GET)
 	public ResponseEntity<List<Entidad>> findByBarrio(@RequestBody String barrio) {
 		return new ResponseEntity<List<Entidad>>(entidadService.findByBarrio(barrio), HttpStatus.OK);
 	}
