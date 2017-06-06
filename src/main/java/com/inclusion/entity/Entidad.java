@@ -13,6 +13,36 @@ public class Entidad {
 	@Column(unique = true)
 	private String nombre;
 	private String direccion;
+	private String telefono;
+	private String email;
+	
+	@ManyToOne
+	@JoinColumn(name = "barrioId")
+	private Barrio barrio;
+	
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Barrio getBarrio() {
+		return barrio;
+	}
+
+	public void setBarrio(Barrio barrio) {
+		this.barrio = barrio;
+	}
 
 	public Integer getId() {
 		return id;
