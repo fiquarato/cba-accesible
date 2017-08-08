@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inclusion.entity.Barrio;
 import com.inclusion.entity.Entidad;
 import com.inclusion.service.EntidadService;
 
@@ -32,9 +31,9 @@ public class EntidadController {
 		return new ResponseEntity<Entidad>(entidadService.save(entidad), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/findbybarrio", method = RequestMethod.GET)
-	public ResponseEntity<List<Entidad>> findByBarrio(@RequestBody String barrio) {
-		return new ResponseEntity<List<Entidad>>(entidadService.findByBarrio(barrio), HttpStatus.OK);
+	@RequestMapping(value = "/findall", method = RequestMethod.GET)
+	public ResponseEntity<List<Entidad>> findAll() {
+		return new ResponseEntity<List<Entidad>>(entidadService.findAll(), HttpStatus.OK);
 	}
 	
 	
