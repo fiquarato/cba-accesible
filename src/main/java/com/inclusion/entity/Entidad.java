@@ -14,8 +14,8 @@ public class Entidad {
 	private String nombre;
 	private String direccion;
 	private int numeroDireccion;
-	private int latitud;
-	private int longitud;
+	private Double latitud;
+	private Double longitud;
 	private String telefono;
 	private String email;
 	
@@ -43,16 +43,16 @@ public class Entidad {
 	public void setNumeroDireccion(int numeroDireccion) {
 		this.numeroDireccion = numeroDireccion;
 	}
-	public int getLatitud() {
+	public Double getLatitud() {
 		return latitud;
 	}
-	public void setLatitud(int latitud) {
+	public void setLatitud(Double latitud) {
 		this.latitud = latitud;
 	}
-	public int getLongitud() {
+	public Double getLongitud() {
 		return longitud;
 	}
-	public void setLongitud(int longitud) {
+	public void setLongitud(Double longitud) {
 		this.longitud = longitud;
 	}
 	public String getTelefono() {

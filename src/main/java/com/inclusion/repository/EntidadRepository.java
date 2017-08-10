@@ -12,6 +12,6 @@ public interface EntidadRepository extends CrudRepository<Entidad, Integer> {
     
 	public Entidad findByNombre(String nombre);
 	
-	public List<Entidad> findAll();
+	public List<Entidad> findAll();	
 		
 }
