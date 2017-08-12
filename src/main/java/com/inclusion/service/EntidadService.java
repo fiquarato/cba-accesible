@@ -29,4 +29,9 @@ public class EntidadService {
 		return entidadRepository.findAll();
 	}
 	
+	@Transactional
+	public int deleteById(int id) {
+		return entidadRepository.deleteById(id);
+	}
+	
 }
