@@ -36,7 +36,7 @@ public class EntidadController {
 		return new ResponseEntity<List<Entidad>>(entidadService.findAll(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/deleteById", method = RequestMethod.GET)
+	@RequestMapping(value = "/deletebyid", method = RequestMethod.GET)
 	public ResponseEntity<Integer> deleteById(@RequestParam("id") int id) {
 		return new ResponseEntity<Integer>(entidadService.deleteById(id), HttpStatus.OK);
 	}	
