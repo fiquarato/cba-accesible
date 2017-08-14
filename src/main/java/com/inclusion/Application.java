@@ -30,7 +30,7 @@ public class Application {
 	public boolean loadEntidades(){
 		
 		Entidad ent1 = new Entidad();
-		ent1.setNombre("Fundación F.A.R.O.S.");
+		ent1.setNombre("Fundacion F.A.R.O.S.");
 		ent1.setDireccion("Haedo");
 		ent1.setNumeroDireccion(473);
 		ent1.setLatitud(-31.4135551);
@@ -43,7 +43,7 @@ public class Application {
 
 		Entidad ent2 = new Entidad();
 		ent2.setNombre("CILSA");
-		ent2.setDireccion("Coronel Agustín Olmedo");
+		ent2.setDireccion("Coronel Agustin Olmedo");
 		ent2.setNumeroDireccion(180);
 		ent2.setLatitud(-31.4091605);
 		ent2.setLongitud(-64.19939369999997);
@@ -54,7 +54,7 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent3 = new Entidad();
-		ent3.setNombre("Fundación La Estación");
+		ent3.setNombre("Fundacion La Estacion");
 		ent3.setDireccion("Adolfo Orma");
 		ent3.setNumeroDireccion(1446);
 		ent3.setLatitud(-31.3830075);
@@ -66,7 +66,7 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent4 = new Entidad();
-		ent4.setNombre("Instituto de Rehabilitación Córdoba");
+		ent4.setNombre("Instituto de Rehabilitacion Cordoba");
 		ent4.setDireccion("San Lorenzo");
 		ent4.setNumeroDireccion(283);
 		ent4.setLatitud(-31.4241422 );
@@ -78,7 +78,7 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent5 = new Entidad();
-		ent5.setNombre("Fundación Pueblo Nuevo");
+		ent5.setNombre("Fundacion Pueblo Nuevo");
 		ent5.setDireccion("General Alvear");
 		ent5.setNumeroDireccion(351);
 		ent5.setLatitud(-31.4127161);
@@ -90,7 +90,7 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent6 = new Entidad();
-		ent6.setNombre("Fundación La Mirada");
+		ent6.setNombre("Fundacion La Mirada");
 		ent6.setDireccion("Pedro de Mendoza");
 		ent6.setNumeroDireccion(2634);
 		ent6.setLatitud(-31.4410872);
@@ -114,7 +114,7 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent8 = new Entidad();
-		ent8.setNombre("Por igual más");
+		ent8.setNombre("Por igual mas");
 		ent8.setDireccion("Juan del Campillo");
 		ent8.setNumeroDireccion(173);
 		ent8.setLatitud(-31.4015043);
@@ -126,7 +126,7 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent9 = new Entidad();
-		ent9.setNombre("Fundación Senda Azul");
+		ent9.setNombre("Fundacion Senda Azul");
 		ent9.setDireccion("Dumesnil");
 		ent9.setNumeroDireccion(1440);
 		ent9.setLatitud(-31.4012455);
@@ -151,7 +151,7 @@ public class Application {
 
 		Entidad ent11 = new Entidad();
 		ent11.setNombre("Usuarios, Familiares y Amigos de los Servicios de Salud Mental");
-		ent11.setDireccion("León Morra");
+		ent11.setDireccion("Leon Morra");
 		ent11.setNumeroDireccion(172);
 		ent11.setLatitud(-31.4190659);
 		ent11.setLongitud(-64.17061919999998);
@@ -162,7 +162,7 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent12 = new Entidad();
-		ent12.setNombre("Pequeño Cottolengo Don Orione");
+		ent12.setNombre("Pequenio Cottolengo Don Orione");
 		ent12.setDireccion("Av. Armada Argentina");
 		ent12.setNumeroDireccion(2440);
 		ent12.setLatitud(-31.47791819999999);
@@ -174,7 +174,7 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent13 = new Entidad();
-		ent13.setNombre("Fundación Si Córdoba");
+		ent13.setNombre("Fundacion Si Cordoba");
 		ent13.setDireccion("Dean Funes");
 		ent13.setNumeroDireccion(100);
 		ent13.setLatitud(-31.4151981);
@@ -186,8 +186,8 @@ public class Application {
 		//---------------------------------------------------
 
 		Entidad ent14 = new Entidad();
-		ent14.setNombre("Fundación Baccigalupo Deporte");
-		ent14.setDireccion("Agustín Garzon");
+		ent14.setNombre("Fundacion Baccigalupo Deporte");
+		ent14.setDireccion("Agustin Garzon");
 		ent14.setNumeroDireccion(1221);
 		ent14.setLatitud(-31.424027);
 		ent14.setLongitud(-64.16720609999999);
@@ -199,7 +199,7 @@ public class Application {
 
 		Entidad ent15 = new Entidad();
 		ent15.setNombre("Powerchair Football Argentina");
-		ent15.setDireccion("Av. Cárcano sn");
+		ent15.setDireccion("Av. Carcano sn");
 		ent15.setNumeroDireccion(0);
 		ent15.setLatitud(-31.368864);
 		ent15.setLongitud(-64.246113) ;
