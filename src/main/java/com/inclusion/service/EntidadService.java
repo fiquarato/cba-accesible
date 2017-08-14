@@ -21,11 +21,10 @@ public class EntidadService {
 	}
 	
 	public Entidad findByNombre (String name){
-		return entidadRepository.findByNombre(name);
+		return entidadRepository.findByNombreContaining(name);
 	}
 	
-	public List<Entidad> findAll (){
-		
+	public List<Entidad> findAll (){		
 		return entidadRepository.findAll();
 	}
 	
