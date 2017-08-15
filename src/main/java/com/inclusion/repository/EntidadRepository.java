@@ -10,7 +10,7 @@ import com.inclusion.entity.Entidad;
 @Component
 public interface EntidadRepository extends CrudRepository<Entidad, Integer> {
     
-	public Entidad findByNombre(String nombre);
+	public List<Entidad> findByNombreContainingIgnoreCase(String nombre);
 	
 	public int deleteById(int id);
 	

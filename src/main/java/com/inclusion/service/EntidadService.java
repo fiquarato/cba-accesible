@@ -20,8 +20,8 @@ public class EntidadService {
 		return entidadRepository.save(entidad);
 	}
 	
-	public Entidad findByNombre (String name){
-		return entidadRepository.findByNombre(name);
+	public List<Entidad> findByNombre (String name){
+		return entidadRepository.findByNombreContainingIgnoreCase(name);
 	}
 	
 	public List<Entidad> findAll (){
