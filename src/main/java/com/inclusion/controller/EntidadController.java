@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inclusion.entity.Entidad;
+import com.inclusion.entity.Lugar;
+import com.inclusion.entity.TipoDiscapacidad;
 import com.inclusion.service.EntidadService;
 
 @RestController
@@ -22,18 +23,23 @@ public class EntidadController {
 	public EntidadService entidadService;
 
 	@RequestMapping(value = "/findbynombre", method = RequestMethod.GET)
-	public ResponseEntity<List<Entidad>> findByNombre(@RequestParam("nombre") String nombre) {
-		return new ResponseEntity<List<Entidad>>(entidadService.findByNombre(nombre), HttpStatus.OK);
+	public ResponseEntity<List<Lugar>> findByNombre(@RequestParam("nombre") String nombre) {
+		return new ResponseEntity<List<Lugar>>(entidadService.findByNombre(nombre), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/findbytipodiscapacidad", method = RequestMethod.GET)
+	public ResponseEntity<List<Lugar>> findByTipoDiscapacidad(@RequestParam("tipoDiscapacidad") List<TipoDiscapacidad> listaTiposDiscapacidad) {
+		return new ResponseEntity<List<Lugar>>(entidadService.findByTipoDiscapacidad(listaTiposDiscapacidad), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/saveentidad", method = RequestMethod.POST)
-	public ResponseEntity<Entidad> saveEntidad(@RequestBody Entidad entidad) {
-		return new ResponseEntity<Entidad>(entidadService.save(entidad), HttpStatus.OK);
+	public ResponseEntity<Lugar> saveEntidad(@RequestBody Lugar entidad) {
+		return new ResponseEntity<Lugar>(entidadService.save(entidad), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/findall", method = RequestMethod.GET)
-	public ResponseEntity<List<Entidad>> findAll() {
-		return new ResponseEntity<List<Entidad>>(entidadService.findAll(), HttpStatus.OK);
+	public ResponseEntity<List<Lugar>> findAll() {
+		return new ResponseEntity<List<Lugar>>(entidadService.findAll(), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/deletebyid", method = RequestMethod.GET)

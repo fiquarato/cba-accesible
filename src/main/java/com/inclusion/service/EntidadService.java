@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.inclusion.entity.Entidad;
+import com.inclusion.entity.Lugar;
+import com.inclusion.entity.TipoDiscapacidad;
 import com.inclusion.repository.EntidadRepository;
 
 @Service
@@ -16,15 +17,19 @@ public class EntidadService {
 	private EntidadRepository entidadRepository;
 	
 	@Transactional
-	public Entidad save(Entidad entidad) {
+	public Lugar save(Lugar entidad) {
 		return entidadRepository.save(entidad);
 	}
 	
-	public List<Entidad> findByNombre (String name){
+	public List<Lugar> findByNombre (String name){
 		return entidadRepository.findByNombreContainingIgnoreCase(name);
 	}
 	
-	public List<Entidad> findAll (){		
+	public List<Lugar> findByTipoDiscapacidad (List<TipoDiscapacidad> listaTiposDiscapacidad){
+		return entidadRepository.findByListaTiposDiscapacidadIn(listaTiposDiscapacidad);
+	}
+	
+	public List<Lugar> findAll (){		
 		return entidadRepository.findAll();
 	}
 	
