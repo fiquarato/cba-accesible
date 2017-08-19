@@ -22,8 +22,8 @@ public class EntidadController {
 	public EntidadService entidadService;
 
 	@RequestMapping(value = "/findbynombre", method = RequestMethod.GET)
-	public ResponseEntity<Entidad> findByNombre(@RequestParam("nombre") String nombre) {
-		return new ResponseEntity<Entidad>(entidadService.findByNombre(nombre), HttpStatus.OK);
+	public ResponseEntity<List<Entidad>> findByNombre(@RequestParam("nombre") String nombre) {
+		return new ResponseEntity<List<Entidad>>(entidadService.findByNombre(nombre), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/saveentidad", method = RequestMethod.POST)

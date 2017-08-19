@@ -11,6 +11,8 @@ import com.inclusion.entity.Entidad;
 public interface EntidadRepository extends CrudRepository<Entidad, Integer> {
     
 	public Entidad findByNombreContaining(String nombre);
+
+	public List<Entidad> findByNombreContainingIgnoreCase(String nombre);
 	
 	public int deleteById(int id);
 	

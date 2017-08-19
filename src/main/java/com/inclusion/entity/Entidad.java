@@ -18,6 +18,7 @@ public class Entidad {
 	private Double longitud;
 	private String telefono;
 	private String email;
+	private String web;	
 	
 	public Integer getId() {
 		return id;
@@ -66,5 +67,11 @@ public class Entidad {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
+	public String getWeb() {
+		return web;
+	}
+	public void setWeb(String web) {
+		this.web = web;
+	}
 }
