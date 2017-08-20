@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.inclusion.entity.Lugar;
-import com.inclusion.entity.TipoDiscapacidad;
 import com.inclusion.repository.EntidadRepository;
 
 @Service
@@ -25,8 +24,8 @@ public class EntidadService {
 		return entidadRepository.findByNombreContainingIgnoreCase(name);
 	}
 	
-	public List<Lugar> findByTipoDiscapacidad (List<TipoDiscapacidad> listaTiposDiscapacidad){
-		return entidadRepository.findByListaTiposDiscapacidadIn(listaTiposDiscapacidad);
+	public List<Lugar> findByListaTiposDiscapacidad (int id){
+		return entidadRepository.findByListaTiposDiscapacidad_id(id);
 	}
 	
 	public List<Lugar> findAll (){		

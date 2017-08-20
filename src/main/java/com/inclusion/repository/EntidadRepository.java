@@ -15,7 +15,7 @@ public interface EntidadRepository extends CrudRepository<Lugar, Integer> {
 
 	public List<Lugar> findByNombreContainingIgnoreCase(String nombre);
 	
-	public List<Lugar> findByListaTiposDiscapacidadIn(List<TipoDiscapacidad> listaTiposDiscapacidad);
+	public List<Lugar> findByListaTiposDiscapacidad_id(int id);
 	
 	public int deleteById(int id);
 	

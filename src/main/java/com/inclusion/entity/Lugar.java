@@ -27,7 +27,6 @@ public class Lugar {
 	private Double longitud;
 	private String email;
 	private String sitioWeb;
-	@ElementCollection(targetClass = TipoDiscapacidad.class, fetch = FetchType.EAGER)
 	@ManyToMany(targetEntity = TipoDiscapacidad.class, cascade = CascadeType.MERGE)
 	@JoinTable(name = "lugar_tipoDiscapacidad", 
 				joinColumns = @JoinColumn(name = "lugarId"), 

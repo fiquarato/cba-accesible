@@ -28,8 +28,8 @@ public class EntidadController {
 	}
 	
 	@RequestMapping(value = "/findbytipodiscapacidad", method = RequestMethod.GET)
-	public ResponseEntity<List<Lugar>> findByTipoDiscapacidad(@RequestParam("tipoDiscapacidad") List<TipoDiscapacidad> listaTiposDiscapacidad) {
-		return new ResponseEntity<List<Lugar>>(entidadService.findByTipoDiscapacidad(listaTiposDiscapacidad), HttpStatus.OK);
+	public ResponseEntity< List<Lugar>> findByTipoDiscapacidad(@RequestParam("id") int id) {
+		return new ResponseEntity<List<Lugar>>(entidadService.findByListaTiposDiscapacidad(id), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/saveentidad", method = RequestMethod.POST)
