@@ -5,17 +5,20 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
-import com.inclusion.entity.Entidad;
+import com.inclusion.entity.Lugar;
+import com.inclusion.entity.TipoDiscapacidad;
 
 @Component
-public interface EntidadRepository extends CrudRepository<Entidad, Integer> {
+public interface EntidadRepository extends CrudRepository<Lugar, Integer> {
     
-	public Entidad findByNombreContaining(String nombre);
+	public Lugar findByNombreContaining(String nombre);
 
-	public List<Entidad> findByNombreContainingIgnoreCase(String nombre);
+	public List<Lugar> findByNombreContainingIgnoreCase(String nombre);
+	
+	public List<Lugar> findByListaTiposDiscapacidad_id(int id);
 	
 	public int deleteById(int id);
 	
-	public List<Entidad> findAll();	
+	public List<Lugar> findAll();	
 		
 }
