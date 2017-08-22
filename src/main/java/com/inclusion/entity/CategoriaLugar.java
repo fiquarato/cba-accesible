@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class CategoriaLugar {
 	
@@ -41,6 +43,7 @@ public class CategoriaLugar {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	@JsonIgnore
 	public List<SubCategoriaLugar> getListaTipoSubCategoriaLugar() {
 		return listaTipoSubCategoriaLugar;
 	}

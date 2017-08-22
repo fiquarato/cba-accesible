@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class SubCategoriaLugar {
 	@Id
@@ -41,7 +39,6 @@ public class SubCategoriaLugar {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	@JsonIgnore
 	public CategoriaLugar getCategoriaLugar() {
 		return categoriaLugar;
 	}
