@@ -46,6 +46,7 @@ public class Application {
 	public boolean loadEntidades() {
 
 		// Tipos Discapacidad
+		
 		TipoDiscapacidad tipoDiscapacidad1 = new TipoDiscapacidad();
 		tipoDiscapacidad1.setNombre("Visual");
 		tipoDiscapacidadRepository.save(tipoDiscapacidad1);

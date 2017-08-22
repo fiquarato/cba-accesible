@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inclusion.entity.Lugar;
 import com.inclusion.entity.TipoDiscapacidad;
-import com.inclusion.service.EntidadService;
+import com.inclusion.service.LugarService;
 
 @RestController
 @RequestMapping("/service")
-public class EntidadController {
+public class LugarController {
 	
 	@Autowired
-	public EntidadService entidadService;
+	public LugarService entidadService;
 
 	@RequestMapping(value = "/findbynombre", method = RequestMethod.GET)
 	public ResponseEntity<List<Lugar>> findByNombre(@RequestParam("nombre") String nombre) {
