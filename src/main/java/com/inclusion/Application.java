@@ -11,9 +11,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.inclusion.entity.CategoriaLugar;
 import com.inclusion.entity.Lugar;
+import com.inclusion.entity.SubCategoriaLugar;
 import com.inclusion.entity.TipoDiscapacidad;
-import com.inclusion.repository.EntidadRepository;
+import com.inclusion.repository.CategoriaLugarRepository;
+import com.inclusion.repository.LugarRepository;
+import com.inclusion.repository.SubCategoriaLugarRepository;
 import com.inclusion.repository.TipoDiscapacidadRepository;
 
 @SpringBootApplication
@@ -23,10 +27,16 @@ import com.inclusion.repository.TipoDiscapacidadRepository;
 public class Application {
 
 	@Autowired
-	private EntidadRepository entidadRepository;
+	private LugarRepository lugarRepository;
 	
 	@Autowired
 	private TipoDiscapacidadRepository tipoDiscapacidadRepository;
+	
+	@Autowired
+	private CategoriaLugarRepository categoriaLugarRepository;
+	
+	@Autowired
+	private SubCategoriaLugarRepository subCategoriaLugarRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -35,69 +45,123 @@ public class Application {
 	@Bean
 	public boolean loadEntidades() {
 
+		// Tipos Discapacidad
+		TipoDiscapacidad tipoDiscapacidad1 = new TipoDiscapacidad();
+		tipoDiscapacidad1.setNombre("Visual");
+		tipoDiscapacidadRepository.save(tipoDiscapacidad1);
+		TipoDiscapacidad tipoDiscapacidad2 = new TipoDiscapacidad();
+		tipoDiscapacidad2.setNombre("Motriz");
+		tipoDiscapacidadRepository.save(tipoDiscapacidad2);
+		TipoDiscapacidad tipoDiscapacidad3 = new TipoDiscapacidad();
+		tipoDiscapacidad3.setNombre("Auditiva");
+		tipoDiscapacidadRepository.save(tipoDiscapacidad3);
+		TipoDiscapacidad tipoDiscapacidad4 = new TipoDiscapacidad();
+		tipoDiscapacidad4.setNombre("Lenguaje");
+		tipoDiscapacidadRepository.save(tipoDiscapacidad4);
+		TipoDiscapacidad tipoDiscapacidad5 = new TipoDiscapacidad();
+		tipoDiscapacidad5.setNombre("Mental");
+		tipoDiscapacidadRepository.save(tipoDiscapacidad5);
+		
+		// Categorias y Subcategorias
+		
+		CategoriaLugar categoriaLugar1 = new CategoriaLugar();
+		categoriaLugar1.setNombre("Salud");
+		categoriaLugarRepository.save(categoriaLugar1);		
+		
+		List<SubCategoriaLugar> listaTipoSubCategoriaLugar = new ArrayList<SubCategoriaLugar>();
+		List<SubCategoriaLugar> listaTipoSubCategoriaLugar2 = new ArrayList<SubCategoriaLugar>();
+		SubCategoriaLugar subCategoriaLugar1 = new SubCategoriaLugar();
+		subCategoriaLugar1.setNombre("Ortopedias");
+		subCategoriaLugar1.setCategoriaLugar(categoriaLugar1);
+		subCategoriaLugarRepository.save(subCategoriaLugar1);
+		listaTipoSubCategoriaLugar.add(subCategoriaLugar1);
+		listaTipoSubCategoriaLugar2.add(subCategoriaLugar1);
+		SubCategoriaLugar subCategoriaLugar2 = new SubCategoriaLugar();
+		subCategoriaLugar2.setNombre("Protesis");
+		subCategoriaLugar2.setCategoriaLugar(categoriaLugar1);	
+		subCategoriaLugarRepository.save(subCategoriaLugar2);
+		listaTipoSubCategoriaLugar.add(subCategoriaLugar2);
+		//categoriaLugar1.setListaTipoSubCategoriaLugar(listaTipoSubCategoriaLugar);
+
+		
 		List<TipoDiscapacidad> listaTiposDiscapacidad = new ArrayList<TipoDiscapacidad>();
-		TipoDiscapacidad tipoDiscapacidad = new TipoDiscapacidad();
-		tipoDiscapacidad.setNombre("VISUAL");
-		tipoDiscapacidadRepository.save(tipoDiscapacidad);
-		listaTiposDiscapacidad.add(tipoDiscapacidad);
+		listaTiposDiscapacidad.add(tipoDiscapacidad1);
 		
 		Lugar ent1 = new Lugar();
 		ent1.setNombre("Fundacion F.A.R.O.S.");
 		ent1.setCalle("Haedo");
 		ent1.setNumeroCalle(473);
 		ent1.setListaTiposDiscapacidad(listaTiposDiscapacidad);
+		ent1.setListaSubCategoriasLugar(listaTipoSubCategoriaLugar);
 		ent1.setLatitud(-31.4135551);
 		ent1.setLongitud(-64.21298130000002);
 		ent1.setTelefono("0351 - 4809735");
 		ent1.setSitioWeb("http://www.fundacionfaros.org.ar/contact");
-		entidadRepository.save(ent1);
+		lugarRepository.save(ent1);
 
 		// ---------------------------------------------------
 
+		listaTiposDiscapacidad.clear();
+		listaTiposDiscapacidad.add(tipoDiscapacidad2);
+		
 		Lugar ent2 = new Lugar();
 		ent2.setNombre("CILSA");
 		ent2.setCalle("Coronel Agustin Olmedo");
 		ent2.setNumeroCalle(180);
+		ent2.setListaTiposDiscapacidad(listaTiposDiscapacidad);
+		ent2.setListaSubCategoriasLugar(listaTipoSubCategoriaLugar2);
 		ent2.setLatitud(-31.4091605);
 		ent2.setLongitud(-64.19939369999997);
 		ent2.setTelefono("0351 425-8900");
 		ent2.setSitioWeb("https://www.cilsa.org/contacto/");
-		entidadRepository.save(ent2);
+		lugarRepository.save(ent2);
 		// ---------------------------------------------------
 
+		listaTiposDiscapacidad.clear();
+		listaTiposDiscapacidad.add(tipoDiscapacidad3);
+		
 		Lugar ent3 = new Lugar();
 		ent3.setNombre("Fundacion La Estacion");
 		ent3.setCalle("Adolfo Orma");
 		ent3.setNumeroCalle(1446);
+		ent3.setListaTiposDiscapacidad(listaTiposDiscapacidad);
 		ent3.setLatitud(-31.3830075);
 		ent3.setLongitud(-64.2300262);
 		ent3.setTelefono("54-351-4823764");
 		ent3.setEmail("fundacionlaestacion@hotmail.com");
-		entidadRepository.save(ent3);
+		lugarRepository.save(ent3);
 
 		// ---------------------------------------------------
 
+		listaTiposDiscapacidad.clear();
+		listaTiposDiscapacidad.add(tipoDiscapacidad4);
+		
 		Lugar ent4 = new Lugar();
 		ent4.setNombre("Instituto de Rehabilitacion Cordoba");
 		ent4.setCalle("San Lorenzo");
 		ent4.setNumeroCalle(283);
+		ent4.setListaTiposDiscapacidad(listaTiposDiscapacidad);
 		ent4.setLatitud(-31.4241422);
 		ent4.setLongitud(-64.18379119999997);
 		ent4.setTelefono("0351 422 8183");
 		ent4.setEmail("alpicordoba@ciudad.com.ar");
-		entidadRepository.save(ent4);
+		lugarRepository.save(ent4);
 
 		// ---------------------------------------------------
 
+		listaTiposDiscapacidad.clear();
+		listaTiposDiscapacidad.add(tipoDiscapacidad5);
+		
 		Lugar ent5 = new Lugar();
 		ent5.setNombre("Fundacion Pueblo Nuevo");
 		ent5.setCalle("General Alvear");
 		ent5.setNumeroCalle(351);
+		ent5.setListaTiposDiscapacidad(listaTiposDiscapacidad);
 		ent5.setLatitud(-31.4127161);
 		ent5.setLongitud(-64.17970600000001);
 		ent5.setTelefono("0351 424-0599");
 		ent5.setSitioWeb("http://fundacionpueblonuevo.blogspot.com.ar/");
-		entidadRepository.save(ent5);
+		lugarRepository.save(ent5);
 
 		// ---------------------------------------------------
 
@@ -109,7 +173,7 @@ public class Application {
 		ent6.setLongitud(-64.20698449999998);
 		ent6.setTelefono("0351 652-6726");
 		ent6.setEmail("fundacionlamirada@gmail.com");
-		entidadRepository.save(ent6);
+		lugarRepository.save(ent6);
 
 		// ---------------------------------------------------
 
@@ -121,7 +185,7 @@ public class Application {
 		ent7.setLongitud(-64.17620399999998);
 		ent7.setTelefono("0351 6240098");
 		ent7.setEmail("crescomascba@gmail.com");
-		entidadRepository.save(ent7);
+		lugarRepository.save(ent7);
 
 		// ---------------------------------------------------
 
@@ -133,7 +197,7 @@ public class Application {
 		ent8.setLongitud(-64.17958599999997);
 		ent8.setTelefono("0351 152486437");
 		ent8.setEmail("porigual.comunicaciones@gmail.com");
-		entidadRepository.save(ent8);
+		lugarRepository.save(ent8);
 
 		// ---------------------------------------------------
 
@@ -145,7 +209,7 @@ public class Application {
 		ent9.setLongitud(-64.19812580000001);
 		ent9.setTelefono("0351 4731297");
 		ent9.setEmail("fundacionsendaazul@live.com.ar");
-		entidadRepository.save(ent9);
+		lugarRepository.save(ent9);
 
 		// ---------------------------------------------------
 
@@ -157,7 +221,7 @@ public class Application {
 		ent10.setLongitud(-64.211728);
 		ent10.setTelefono("0351 477-0245");
 		ent10.setEmail("fundacioninclubyte@gmail.com");
-		entidadRepository.save(ent10);
+		lugarRepository.save(ent10);
 
 		// ---------------------------------------------------
 
@@ -169,7 +233,7 @@ public class Application {
 		ent11.setLongitud(-64.17061919999998);
 		ent11.setTelefono("3514951969");
 		ent11.setEmail("saludmentalcordoba@gmail.com");
-		entidadRepository.save(ent11);
+		lugarRepository.save(ent11);
 
 		// ---------------------------------------------------
 
@@ -181,7 +245,7 @@ public class Application {
 		ent12.setLongitud(-64.2377368);
 		ent12.setTelefono("0800 444 3274");
 		ent12.setSitioWeb("http://www.donorionecordoba.com.ar/");
-		entidadRepository.save(ent12);
+		lugarRepository.save(ent12);
 
 		// ---------------------------------------------------
 
@@ -193,7 +257,7 @@ public class Application {
 		ent13.setLongitud(-64.18663129999999);
 		ent13.setTelefono("0351 155426938");
 		ent13.setEmail("cordoba@fundacionsi.org.ar");
-		entidadRepository.save(ent13);
+		lugarRepository.save(ent13);
 
 		// ---------------------------------------------------
 
@@ -205,7 +269,7 @@ public class Application {
 		ent14.setLongitud(-64.16720609999999);
 		ent14.setTelefono("0351 155500347");
 		ent14.setSitioWeb("http://fundacionbaccigalupo.org/");
-		entidadRepository.save(ent14);
+		lugarRepository.save(ent14);
 
 		// ---------------------------------------------------
 
@@ -217,7 +281,7 @@ public class Application {
 		ent15.setLongitud(-64.246113);
 		ent15.setTelefono("011 47082620");
 		ent15.setEmail("adriana.borgogno@pcfa.com.ar");
-		entidadRepository.save(ent15);
+		lugarRepository.save(ent15);
 
 		// ---------------------------------------------------
 
@@ -229,7 +293,7 @@ public class Application {
 		ent16.setLongitud(-64.30208590000001);
 		ent16.setTelefono("0351 153506909");
 		ent16.setEmail("apadro_va@hotmail.com");
-		entidadRepository.save(ent16);
+		lugarRepository.save(ent16);
 
 		// ---------------------------------------------------
 

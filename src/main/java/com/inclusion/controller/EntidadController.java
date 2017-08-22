@@ -28,8 +28,20 @@ public class EntidadController {
 	}
 	
 	@RequestMapping(value = "/findbytipodiscapacidad", method = RequestMethod.GET)
-	public ResponseEntity< List<Lugar>> findByTipoDiscapacidad(@RequestParam("id") int id) {
-		return new ResponseEntity<List<Lugar>>(entidadService.findByListaTiposDiscapacidad(id), HttpStatus.OK);
+	public ResponseEntity< List<Lugar>> findByTipoDiscapacidad(@RequestParam("nombres") List<String> nombres) {
+		return new ResponseEntity<List<Lugar>>(entidadService.findByListaTiposDiscapacidad(nombres), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/findbycategorias", method = RequestMethod.GET)
+	public ResponseEntity< List<Lugar>> findByCategorias(@RequestParam("nombres") List<String> nombres) {
+		return new ResponseEntity<List<Lugar>>(entidadService.findByCategorias(nombres), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/busquedaavanzada", method = RequestMethod.GET)
+	public ResponseEntity< List<Lugar>> findByCategorias(@RequestParam("textoBusqueda") String textoBusqueda,
+				@RequestParam("nombresTipoDiscapacidad") List<String> nombresTipoDiscapacidad,
+				@RequestParam("nombresCategorias") List<String> nombresCategorias) {
+		return new ResponseEntity<List<Lugar>>(entidadService.busquedaAvanzada(textoBusqueda, nombresTipoDiscapacidad, nombresCategorias), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/saveentidad", method = RequestMethod.POST)
