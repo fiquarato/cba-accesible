@@ -16,47 +16,47 @@ import com.inclusion.entity.TipoDiscapacidad;
 import com.inclusion.service.LugarService;
 
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/servicelugar")
 public class LugarController {
 	
 	@Autowired
-	public LugarService entidadService;
+	public LugarService lugarService;
 
 	@RequestMapping(value = "/findbynombre", method = RequestMethod.GET)
 	public ResponseEntity<List<Lugar>> findByNombre(@RequestParam("nombre") String nombre) {
-		return new ResponseEntity<List<Lugar>>(entidadService.findByNombre(nombre), HttpStatus.OK);
+		return new ResponseEntity<List<Lugar>>(lugarService.findByNombre(nombre), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/findbytipodiscapacidad", method = RequestMethod.GET)
 	public ResponseEntity< List<Lugar>> findByTipoDiscapacidad(@RequestParam("nombres") List<String> nombres) {
-		return new ResponseEntity<List<Lugar>>(entidadService.findByListaTiposDiscapacidad(nombres), HttpStatus.OK);
+		return new ResponseEntity<List<Lugar>>(lugarService.findByListaTiposDiscapacidad(nombres), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/findbycategorias", method = RequestMethod.GET)
 	public ResponseEntity< List<Lugar>> findByCategorias(@RequestParam("nombres") List<String> nombres) {
-		return new ResponseEntity<List<Lugar>>(entidadService.findByCategorias(nombres), HttpStatus.OK);
+		return new ResponseEntity<List<Lugar>>(lugarService.findByCategorias(nombres), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/busquedaavanzada", method = RequestMethod.GET)
 	public ResponseEntity< List<Lugar>> findByCategorias(@RequestParam("textoBusqueda") String textoBusqueda,
 				@RequestParam("nombresTipoDiscapacidad") List<String> nombresTipoDiscapacidad,
 				@RequestParam("nombresCategorias") List<String> nombresCategorias) {
-		return new ResponseEntity<List<Lugar>>(entidadService.busquedaAvanzada(textoBusqueda, nombresTipoDiscapacidad, nombresCategorias), HttpStatus.OK);
+		return new ResponseEntity<List<Lugar>>(lugarService.busquedaAvanzada(textoBusqueda, nombresTipoDiscapacidad, nombresCategorias), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/saveentidad", method = RequestMethod.POST)
-	public ResponseEntity<Lugar> saveEntidad(@RequestBody Lugar entidad) {
-		return new ResponseEntity<Lugar>(entidadService.save(entidad), HttpStatus.OK);
+	@RequestMapping(value = "/savelugar", method = RequestMethod.POST)
+	public ResponseEntity<Lugar> saveLugar(@RequestBody Lugar lugar) {
+		return new ResponseEntity<Lugar>(lugarService.save(lugar), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/findall", method = RequestMethod.GET)
 	public ResponseEntity<List<Lugar>> findAll() {
-		return new ResponseEntity<List<Lugar>>(entidadService.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Lugar>>(lugarService.findAll(), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/deletebyid", method = RequestMethod.GET)
 	public ResponseEntity<Integer> deleteById(@RequestParam("id") int id) {
-		return new ResponseEntity<Integer>(entidadService.deleteById(id), HttpStatus.OK);
+		return new ResponseEntity<Integer>(lugarService.deleteById(id), HttpStatus.OK);
 	}	
 	
 }

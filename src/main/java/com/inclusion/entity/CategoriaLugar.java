@@ -25,6 +25,7 @@ public class CategoriaLugar {
 	private String descripcion;
 	@OneToMany(mappedBy = "categoriaLugar", fetch = FetchType.LAZY) 
 	private List<SubCategoriaLugar> listaTipoSubCategoriaLugar;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -43,7 +44,6 @@ public class CategoriaLugar {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	@JsonIgnore
 	public List<SubCategoriaLugar> getListaTipoSubCategoriaLugar() {
 		return listaTipoSubCategoriaLugar;
 	}

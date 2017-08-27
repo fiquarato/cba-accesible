@@ -14,56 +14,56 @@ import com.inclusion.repository.LugarRepository;
 public class LugarService {
 
 	@Autowired
-	private LugarRepository entidadRepository;
+	private LugarRepository lugarRepository;
 	
 	@Transactional
-	public Lugar save(Lugar entidad) {
-		return entidadRepository.save(entidad);
+	public Lugar save(Lugar lugar) {
+		return lugarRepository.save(lugar);
 	}
 	
 	public List<Lugar> findByNombre (String name){
-		return entidadRepository.findByNombreContainingIgnoreCase(name);
+		return lugarRepository.findByNombreContainingIgnoreCase(name);
 	}
 	
 	public List<Lugar> findByListaTiposDiscapacidad (List<String> nombres){
-		return entidadRepository.findByListaTiposDiscapacidad_NombreIn(nombres);
+		return lugarRepository.findByListaTiposDiscapacidad_NombreIn(nombres);
 	}
 	
 	public List<Lugar> findByCategorias (List<String> nombres){
-		return entidadRepository.findDistinctByListaSubCategoriasLugar_CategoriaLugar_NombreIn(nombres);
+		return lugarRepository.findDistinctByListaSubCategoriasLugar_CategoriaLugar_NombreIn(nombres);
 	}
 	
 	public List<Lugar> busquedaAvanzada(String textoBusqueda, List<String> nombresTipoDiscapacidad, List<String> nombresCategorias){
 		if (Strings.isNullOrEmpty(textoBusqueda)) {
 			if (nombresTipoDiscapacidad.isEmpty()) {
-				return entidadRepository.findDistinctByListaSubCategoriasLugar_CategoriaLugar_NombreIn(nombresCategorias);
+				return lugarRepository.findDistinctByListaSubCategoriasLugar_CategoriaLugar_NombreIn(nombresCategorias);
 			}
 			else if (nombresCategorias.isEmpty()) {
-				return entidadRepository.findByListaTiposDiscapacidad_NombreIn(nombresTipoDiscapacidad);
+				return lugarRepository.findByListaTiposDiscapacidad_NombreIn(nombresTipoDiscapacidad);
 			}
 			else {
-				return entidadRepository.findDistinctByListaTiposDiscapacidad_NombreInAndListaSubCategoriasLugar_CategoriaLugar_NombreIn(nombresTipoDiscapacidad, nombresCategorias);
+				return lugarRepository.findDistinctByListaTiposDiscapacidad_NombreInAndListaSubCategoriasLugar_CategoriaLugar_NombreIn(nombresTipoDiscapacidad, nombresCategorias);
 			}
 		}
 		else if (nombresTipoDiscapacidad.isEmpty()) {
 			if (nombresCategorias.isEmpty()) {
-				return entidadRepository.findByNombreContainingIgnoreCaseOrDescripcionContainingIgnoreCase(textoBusqueda, textoBusqueda);
+				return lugarRepository.findByNombreContainingIgnoreCaseOrDescripcionContainingIgnoreCase(textoBusqueda, textoBusqueda);
 			}
-			else return entidadRepository.findDistinctByListaSubCategoriasLugar_CategoriaLugar_NombreInAndNombreContainingIgnoreCaseOrDescripcionContainingIgnoreCase(nombresCategorias, textoBusqueda, textoBusqueda);
+			else return lugarRepository.findDistinctByListaSubCategoriasLugar_CategoriaLugar_NombreInAndNombreContainingIgnoreCaseOrDescripcionContainingIgnoreCase(nombresCategorias, textoBusqueda, textoBusqueda);
 		}
 		else if (nombresCategorias.isEmpty()){
-			return entidadRepository.findByListaTiposDiscapacidad_NombreInAndNombreContainingIgnoreCaseOrDescripcionContainingIgnoreCase(nombresTipoDiscapacidad, textoBusqueda, textoBusqueda);
+			return lugarRepository.findByListaTiposDiscapacidad_NombreInAndNombreContainingIgnoreCaseOrDescripcionContainingIgnoreCase(nombresTipoDiscapacidad, textoBusqueda, textoBusqueda);
 		}
-		else return entidadRepository.busquedaAvanzada(textoBusqueda, nombresTipoDiscapacidad, nombresCategorias);
+		else return lugarRepository.busquedaAvanzada(textoBusqueda, nombresTipoDiscapacidad, nombresCategorias);
 	}
 	
 	public List<Lugar> findAll (){		
-		return entidadRepository.findAll();
+		return lugarRepository.findAll();
 	}
 	
 	@Transactional
 	public int deleteById(int id) {
-		return entidadRepository.deleteById(id);
+		return lugarRepository.deleteById(id);
 	}
 	
 }
