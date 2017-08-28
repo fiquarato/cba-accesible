@@ -44,6 +44,7 @@ public class CategoriaLugar {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	@JsonIgnore
 	public List<SubCategoriaLugar> getListaTipoSubCategoriaLugar() {
 		return listaTipoSubCategoriaLugar;
 	}

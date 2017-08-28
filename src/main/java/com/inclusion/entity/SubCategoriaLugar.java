@@ -9,12 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
 @Entity
 public class SubCategoriaLugar {
 	
@@ -48,8 +42,6 @@ public class SubCategoriaLugar {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	@JsonIgnore()
-	@RequestMapping("/servicesubcategorialugar/findall")
 	public CategoriaLugar getCategoriaLugar() {
 		return categoriaLugar;
 	}

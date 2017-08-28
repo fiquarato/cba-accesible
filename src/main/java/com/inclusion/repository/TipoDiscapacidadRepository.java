@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
-import com.inclusion.entity.SubCategoriaLugar;
 import com.inclusion.entity.TipoDiscapacidad;
 
 @Component

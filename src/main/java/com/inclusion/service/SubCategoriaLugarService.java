@@ -28,6 +28,10 @@ public class SubCategoriaLugarService {
 		return subCategoriaLugarRepository.findByNombreContainingIgnoreCase(name);
 	}
 	
+	public List<SubCategoriaLugar> findByCategoriaId (Integer id){
+		return subCategoriaLugarRepository.findByCategoriaLugar_Id(id);
+	}
+	
 	public List<SubCategoriaLugar> findAll (){		
 		return subCategoriaLugarRepository.findAll();
 	}

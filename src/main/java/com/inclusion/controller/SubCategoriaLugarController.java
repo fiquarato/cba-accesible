@@ -25,6 +25,11 @@ public class SubCategoriaLugarController {
 		return new ResponseEntity<List<SubCategoriaLugar>>(subCategoriaLugarService.findByNombre(nombre), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/findbycategoriaid", method = RequestMethod.GET)
+	public ResponseEntity<List<SubCategoriaLugar>> findByCategoria(@RequestParam("id") Integer id) {
+		return new ResponseEntity<List<SubCategoriaLugar>>(subCategoriaLugarService.findByCategoriaId(id), HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/findall", method = RequestMethod.GET)
 	public ResponseEntity<List<SubCategoriaLugar>> findAll() {
 		return new ResponseEntity<List<SubCategoriaLugar>>(subCategoriaLugarService.findAll(), HttpStatus.OK);

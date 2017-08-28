@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.inclusion.entity.CategoriaLugar;
 import com.inclusion.repository.CategoriaLugarRepository;
-import com.inclusion.repository.SubCategoriaLugarRepository;
 
 @Service
 public class CategoriaLugarService {

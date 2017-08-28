@@ -67,7 +67,11 @@ public class Application {
 		
 		CategoriaLugar categoriaLugar1 = new CategoriaLugar();
 		categoriaLugar1.setNombre("Salud");
-		categoriaLugarRepository.save(categoriaLugar1);		
+		categoriaLugarRepository.save(categoriaLugar1);
+		
+		CategoriaLugar categoriaLugar2 = new CategoriaLugar();
+		categoriaLugar2.setNombre("Educacion");
+		categoriaLugarRepository.save(categoriaLugar2);	
 		
 		List<SubCategoriaLugar> listaTipoSubCategoriaLugar = new ArrayList<SubCategoriaLugar>();
 		List<SubCategoriaLugar> listaTipoSubCategoriaLugar2 = new ArrayList<SubCategoriaLugar>();
@@ -82,7 +86,18 @@ public class Application {
 		subCategoriaLugar2.setCategoriaLugar(categoriaLugar1);	
 		subCategoriaLugarRepository.save(subCategoriaLugar2);
 		listaTipoSubCategoriaLugar.add(subCategoriaLugar2);
-		//categoriaLugar1.setListaTipoSubCategoriaLugar(listaTipoSubCategoriaLugar);
+		SubCategoriaLugar subCategoriaLugar3 = new SubCategoriaLugar();
+		subCategoriaLugar3.setNombre("Primaria");
+		subCategoriaLugar3.setCategoriaLugar(categoriaLugar2);
+		subCategoriaLugarRepository.save(subCategoriaLugar3);
+		SubCategoriaLugar subCategoriaLugar4 = new SubCategoriaLugar();
+		subCategoriaLugar4.setNombre("Secundaria");
+		subCategoriaLugar4.setCategoriaLugar(categoriaLugar2);
+		subCategoriaLugarRepository.save(subCategoriaLugar4);
+		SubCategoriaLugar subCategoriaLugar5 = new SubCategoriaLugar();
+		subCategoriaLugar5.setNombre("Superior");
+		subCategoriaLugar5.setCategoriaLugar(categoriaLugar2);
+		subCategoriaLugarRepository.save(subCategoriaLugar5);
 
 		
 		List<TipoDiscapacidad> listaTiposDiscapacidad = new ArrayList<TipoDiscapacidad>();

@@ -6,7 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
 import com.inclusion.entity.CategoriaLugar;
-import com.inclusion.entity.Lugar;
 
 @Component
 public interface CategoriaLugarRepository extends CrudRepository<CategoriaLugar, Integer> {

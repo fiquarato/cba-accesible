@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.inclusion.entity.SubCategoriaLugar;
 import com.inclusion.entity.TipoDiscapacidad;
 import com.inclusion.repository.TipoDiscapacidadRepository;
 
