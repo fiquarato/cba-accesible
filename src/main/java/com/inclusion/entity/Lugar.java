@@ -20,7 +20,7 @@ public class Lugar {
 	private String email;
 	private String sitioWeb;
 	private String facebook;
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "direccionId")
 	private Direccion direccion;
 	@OneToOne

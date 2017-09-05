@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.inclusion.entity.CategoriaLugar;
+import com.inclusion.entity.Direccion;
 import com.inclusion.entity.Lugar;
 import com.inclusion.entity.SubCategoriaLugar;
 import com.inclusion.entity.TipoDiscapacidad;
@@ -103,52 +104,58 @@ public class Application {
 		List<TipoDiscapacidad> listaTiposDiscapacidad = new ArrayList<TipoDiscapacidad>();
 		listaTiposDiscapacidad.add(tipoDiscapacidad1);
 		
-//		Lugar ent1 = new Lugar();
-//		ent1.setNombre("Fundacion F.A.R.O.S.");
-//		ent1.setCalle("Haedo");
-//		ent1.setNumeroCalle(473);
-//		ent1.setListaTiposDiscapacidad(listaTiposDiscapacidad);
-//		ent1.setListaSubCategoriasLugar(listaTipoSubCategoriaLugar);
-//		ent1.setLatitud(-31.4135551);
-//		ent1.setLongitud(-64.21298130000002);
-//		ent1.setTelefono("0351 - 4809735");
-//		ent1.setSitioWeb("http://www.fundacionfaros.org.ar/contact");
-//		lugarRepository.save(ent1);
-//
-//		// ---------------------------------------------------
-//
-//		listaTiposDiscapacidad.clear();
-//		listaTiposDiscapacidad.add(tipoDiscapacidad2);
-//		
-//		Lugar ent2 = new Lugar();
-//		ent2.setNombre("CILSA");
-//		ent2.setCalle("Coronel Agustin Olmedo");
-//		ent2.setNumeroCalle(180);
-//		ent2.setListaTiposDiscapacidad(listaTiposDiscapacidad);
-//		ent2.setListaSubCategoriasLugar(listaTipoSubCategoriaLugar2);
-//		ent2.setLatitud(-31.4091605);
-//		ent2.setLongitud(-64.19939369999997);
-//		ent2.setTelefono("0351 425-8900");
-//		ent2.setSitioWeb("https://www.cilsa.org/contacto/");
-//		lugarRepository.save(ent2);
-//		// ---------------------------------------------------
-//
-//		listaTiposDiscapacidad.clear();
-//		listaTiposDiscapacidad.add(tipoDiscapacidad3);
-//		
-//		Lugar ent3 = new Lugar();
-//		ent3.setNombre("Fundacion La Estacion");
-//		ent3.setCalle("Adolfo Orma");
-//		ent3.setNumeroCalle(1446);
-//		ent3.setListaTiposDiscapacidad(listaTiposDiscapacidad);
-//		ent3.setLatitud(-31.3830075);
-//		ent3.setLongitud(-64.2300262);
-//		ent3.setTelefono("54-351-4823764");
-//		ent3.setEmail("fundacionlaestacion@hotmail.com");
-//		lugarRepository.save(ent3);
-//
-//		// ---------------------------------------------------
-//
+		Lugar ent1 = new Lugar();
+		ent1.setNombre("Fundacion F.A.R.O.S.");
+		Direccion dir1 = new Direccion();
+		dir1.setCalle("Haedo");
+		dir1.setNumero(473);
+		dir1.setLatitud(-31.4135551);
+		dir1.setLongitud(-64.21298130000002);
+		ent1.setDireccion(dir1);
+		ent1.setListaTiposDiscapacidad(listaTiposDiscapacidad);
+		ent1.setListaSubCategoriasLugar(listaTipoSubCategoriaLugar);
+		ent1.setTelefono("0351 - 4809735");
+		ent1.setSitioWeb("http://www.fundacionfaros.org.ar/contact");
+		lugarRepository.save(ent1);
+
+		// ---------------------------------------------------
+
+		listaTiposDiscapacidad.clear();
+		listaTiposDiscapacidad.add(tipoDiscapacidad2);
+		
+		Lugar ent2 = new Lugar();
+		ent2.setNombre("CILSA");
+		Direccion dir2 = new Direccion();
+		dir2.setCalle("Coronel Agustin Olmedo");
+		dir2.setNumero(180);
+		dir2.setLatitud(-31.4091605);
+		dir2.setLongitud(-64.19939369999997);
+		ent2.setDireccion(dir2);
+		ent2.setListaTiposDiscapacidad(listaTiposDiscapacidad);
+		ent2.setListaSubCategoriasLugar(listaTipoSubCategoriaLugar2);
+		ent2.setTelefono("0351 425-8900");
+		ent2.setSitioWeb("https://www.cilsa.org/contacto/");
+		lugarRepository.save(ent2);
+		// ---------------------------------------------------
+
+		listaTiposDiscapacidad.clear();
+		listaTiposDiscapacidad.add(tipoDiscapacidad3);
+		
+		Lugar ent3 = new Lugar();
+		ent3.setNombre("Fundacion La Estacion");
+		Direccion dir3 = new Direccion();
+		dir3.setCalle("Adolfo Orma");
+		dir3.setNumero(1446);
+		dir3.setLatitud(-31.3830075);
+		dir3.setLongitud(-64.2300262);
+		ent3.setDireccion(dir3);
+		ent3.setListaTiposDiscapacidad(listaTiposDiscapacidad);
+		ent3.setTelefono("54-351-4823764");
+		ent3.setEmail("fundacionlaestacion@hotmail.com");
+		lugarRepository.save(ent3);
+
+		// ---------------------------------------------------
+
 //		listaTiposDiscapacidad.clear();
 //		listaTiposDiscapacidad.add(tipoDiscapacidad4);
 //		
@@ -312,7 +319,7 @@ public class Application {
 //		lugarRepository.save(ent16);
 //
 //		// ---------------------------------------------------
-//
+
 		return true;
 	}
 }
