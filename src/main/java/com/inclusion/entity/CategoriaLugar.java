@@ -2,13 +2,7 @@ package com.inclusion.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,7 +18,7 @@ public class CategoriaLugar {
 	private String nombre;
 	private String descripcion;
 	@OneToMany(mappedBy = "categoriaLugar", fetch = FetchType.LAZY) 
-	private List<SubCategoriaLugar> listaTipoSubCategoriaLugar;
+	private List<SubCategoriaLugar> listaSubCategoriaLugar;
 	
 	public Integer getId() {
 		return id;
@@ -45,10 +39,10 @@ public class CategoriaLugar {
 		this.descripcion = descripcion;
 	}
 	@JsonIgnore
-	public List<SubCategoriaLugar> getListaTipoSubCategoriaLugar() {
-		return listaTipoSubCategoriaLugar;
+	public List<SubCategoriaLugar> getListaSubCategoriaLugar() {
+		return listaSubCategoriaLugar;
 	}
-	public void setListaTipoSubCategoriaLugar(List<SubCategoriaLugar> listaTipoSubCategoriaLugar) {
-		this.listaTipoSubCategoriaLugar = listaTipoSubCategoriaLugar;
+	public void setListaSubCategoriaLugar(List<SubCategoriaLugar> listaSubCategoriaLugar) {
+		this.listaSubCategoriaLugar = listaSubCategoriaLugar;
 	}
 }

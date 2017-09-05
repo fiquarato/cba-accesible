@@ -17,6 +17,7 @@ public class TipoDiscapacidad {
 	@Column(unique = true)
 	private String nombre;
 	private String descripcion;
+	
 	public Integer getId() {
 		return id;
 	}
